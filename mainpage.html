@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- This represents the minimal viable product to showcase how we intend to match students to tutors. We were going to use a connection to a MongoDB server -->
+<!-- and mediate the connection to a further Node server through Express, but the stack wouldn't come together. More below -->
+<html>
+<body>
+
+<h2>Eligible tutors</h2>
+<!-- There are more elegant ways to do this, but we ran out of ideas and this only needs a single paragraph at this level of development -->
+<p id="demo"></p>
+
+<script>
+//This data was supposed to be interpreted through a parser from JSON data acquired from our next "alpha" idea, Google Forms connected to a Google Spreadsheet - initially
+//manually exported, and then if we could figure out enough of the Sheets API automatically pull the data from the sheet. Ultimately couldn't figure out enough in time.
+var email = ["carlosabenada@gmail.com", "tariqmohammed@gmail.com", "martaprokofjevaite@gmail.com", "sparksmcgee@gmail.com", "markovchaney@gmail.com"];
+var grades = [60, 80, 90, 95, 92];
+var names = ["Carlos Abenada", "Tariq Mohammed", "Marta Prokojevaite-Spigel", "John Smith", "Markov Chaney"];
+var courseCode = [2372, 2427, 2672, 2372, 2672];
+var desiredCourse = 2372;
+var desiredGrade = 90;
+var text = "";
+//this is probably unnecessary, but it helped me figure out what I was doing wrong.
+var i = 0;
+
+//I'm most proud of this piece of code, inelegant as it is. If properly parsed, the data should have ended up in well-numbered, coordinated arrays, and the Google Forms has plenty of error-checking
+//Since each array is coordinated, I only needed to fetch I and do a simple comparison.
+//A *better* implementation would be to do this server-side by querying the database through a Node server and passing it to a static page.
+for (i = 0; i < grades.length; i++) {
+  if (grades[i] >= desiredGrade && courseCode[i] == desiredCourse) {
+     text += "<br>Email: " + email[i];
+     text += " Name: " + names[i];
+   }
+}
+
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>

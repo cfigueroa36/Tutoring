@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- This illustrates some of what we were *trying* to do. The idea was to try to start parsing JSON data, and maybe overnight figure out a way to get the data -->
+<!-- into readable arrays. For some reason, could not get the Parser to parse anything. -->
+<html>
+<body>
+
+<h2>Eligible tutors</h2>
+
+<p id="demo"></p>
+
+<script>
+var email = ["carlosabenada@gmail.com", "tariqmohammed@gmail.com", "martaprokofjevaite@gmail.com", "sparksmcgee@gmail.com", "markovchaney@gmail.com"];
+var grades = [];
+var names = ["Carlos Abenada", "Tariq Mohammed", "Marta Prokojevaite-Spigel", "John Smith", "Markov Chaney"];
+var courseCode = [2372, 2427, 2672, 2372, 2672];
+var text = "";
+var i = 0;
+var d = 0;
+//every tutorial and documentation I could find said this should work. I tried different permutations - deleting and readding single or double quotes, changing array starts...
+var tutor = JSON.parse('"
+{
+  "Form": [
+    {
+      "Timestamp": null,
+      "Email Address": "carlosabenada@gmail.com",
+      "Name": "Carlos Abenada",
+      "Course Number": 2372,
+      "Grade": 60
+    },
+    {
+      "Timestamp": null,
+      "Email Address": "tariqmohammed@gmail.com",
+      "Name": "Tariq Mohammed",
+      "Course Number": 2427,
+      "Grade": 80
+    },
+    {
+      "Timestamp": null,
+      "Email Address": "martaprokofjevaite@gmail.com",
+      "Name": "Marta Prokojevaite-Spigel",
+      "Course Number": 2672,
+      "Grade": 90
+    },
+    {
+      "Timestamp": null,
+      "Email Address": "sparksmcgee@gmail.com",
+      "Name": "John Smith",
+      "Course Number": 2372,
+      "Grade": 95
+    },
+    {
+      "Timestamp": null,
+      "Email Address": "markovchaney@gmail.com",
+      "Name": "Markov Chaney",
+      "Course Number": 2672,
+      "Grade": 92
+    }
+  ]
+}
+"')
+
+//this was supposed to pull information from the parsed file, but since it wouldn't parse, no idea if this would even work. The goal was to get one attribute parsed and then expand
+var totalMessages = tutor.keys(Grade.Form).length;
+
+    for ( var d = 0; d < totalMessages; d++)
+    {
+        grades.push(Grade.Form);
+    }
+
+for (i = 0; i < grades.length; i++) {
+  if (grades[i] >= 90 && courseCode[i] == 2372) {
+     text += "<br>Email: " + email[i];
+     text += " Name: " + names[i];
+   }
+}
+
+document.getElementById("demo").innerHTML = text;
+</script>
+
+<p id="demo"></p>
+
+</body>
+</html>

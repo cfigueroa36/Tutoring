@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Some necessary jargon -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="myjavascript.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <title>Sign Up</title>
+  </head>
+
+  <!-- Actual code - now seeing: feed -->
+  <body>
+    <h1>Sign Up!</h1>
+    <p>
+      <form action="/action_page.php">
+        Full Name:<br>
+        <input type="text" name="full_name">
+        <br>
+        Your Email:<br>
+        <input type="email" name="the_email">
+        <br>
+        Course Code:<br>
+        <input type="text" name="course_code">
+        <br>
+        Grade:<br>
+        <input type="text">
+        <br><br>
+        <input type="submit">
+      </form>
+      Thank you <?php echo $_POST["full_name"]; ?><br>
+      Your form has been submitted.
+    </p>
+
+    <h2>To Tutor or Be Tutored?</h2>
+    <form action="/action_page.php">
+      <input type="checkbox" name="status" value="student" checked> Be the Student<br>
+      <input type="checkbox" name="status" value="tutor"> Be the Tutor<br><br>
+      <input type="submit">
+
+
+
+    </form>
+
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript" src="myjavascript.js"></script>
+<link rel="stylesheet" href="main.css">
+
+
+<title>WE TUTOR</title>
+</head>
+
+<body>
+
+<!--Start topNav Bar-->
+<div id="nav-placeholder">
+</div>
+<!-- Jquery to pull the navbar into every file -->
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script>
+  $.get("navbar.html", function(data){
+     $("#nav-placeholder").replaceWith(data);
+  });
+</script>
+<!--End topNavBar-->
+<div>
+  <input type="button" id="login" value="Sign Up">
+  <input type="button" id="login" value = "Log In">
+  </div>
+
+
+   </body>
+</html>
